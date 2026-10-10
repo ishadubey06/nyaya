@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  /* Colors */
+  --color-bg-primary: #FDFBF7; /* Warm cream/off-white */
+  --color-bg-secondary: #F3EFE9; /* Soft Beige for cards */
+  --color-bg-tertiary: #FFFFFF; /* Pure white for input fields/high contrast cards */
+  
+  --color-primary: #C86650; /* Deep Terracotta */
+  --color-primary-light: #E38671;
+  --color-primary-dark: #A34E3A;
+  
+  --color-secondary: #2F5A4E; /* Forest Green (Trust/Authority) */
+  --color-secondary-light: #4A7A6C;
+  --color-secondary-dark: #1E3D34;
+  
+  --color-text-main: #2C2C2C; /* Dark gray for readability */
+  --color-text-muted: #5C5C5C;
+  
+  --color-border: #E5E0D8;
+  --color-success: #3D7D50;
+  --color-warning: #D9822B;
+  
+  /* Typography */
+  --font-family-heading: 'Playfair Display', serif;
+  --font-family-body: 'DM Sans', sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(44, 44, 44, 0.04);
+  --shadow-md: 0 4px 12px rgba(44, 44, 44, 0.06);
+  --shadow-lg: 0 12px 24px rgba(44, 44, 44, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-body);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  color: var(--color-text-main);
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.2;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-family-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input, textarea {
+  font-family: var(--font-family-body);
+}
+
+/* Common UI Utilities */
+.card {
+  background-color: var(--color-bg-tertiary);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-full);
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.btn-secondary {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-main);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-full);
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.btn-secondary:hover {
+  background-color: #E2DDD3;
+}
+
+.input-field {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-tertiary);
+  font-size: 1rem;
+  color: var(--color-text-main);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(200, 102, 80, 0.1);
+}
+
+.input-field::placeholder {
+  color: var(--color-text-muted);
+}
+
+body.dark-theme {
+  --color-bg-primary: #121212;
+  --color-bg-secondary: #1E1E1E;
+  --color-bg-tertiary: #2A2A2A;
+  
+  --color-primary: #E38671; /* Lighter terracotta for contrast */
+  --color-primary-light: #F0A595;
+  --color-primary-dark: #C86650;
+  
+  --color-secondary: #4A7A6C; /* Lighter green for visibility */
+  --color-secondary-light: #6B9F8D;
+  --color-secondary-dark: #2F5A4E;
+  
+  --color-text-main: #F5F5F5;
+  --color-text-muted: #A0A0A0;
+  
+  --color-border: #333333;
+}
