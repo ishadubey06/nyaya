@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, ArrowRight, Download, CheckCircle, Copy, Sparkles, Loader2, Scale } from 'lucide-react';
 import { saveCase, getCase, getAdviceAuthHeaders } from '../utils/storage';
+import { getApiBaseUrl } from '../utils/api';
 import VoiceMicButton from './VoiceMicButton';
 
 export default function BailDrafting({ onNavigate, caseId }) {
@@ -68,7 +69,7 @@ export default function BailDrafting({ onNavigate, caseId }) {
   const refineText = async (text) => {
     try {
       const authHeaders = await getAdviceAuthHeaders();
-      const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8000"}/api/advice/refine-bail`, {
+      const response = await fetch(`${getApiBaseUrl()}/api/advice/refine-bail`, {
         method: "POST",
         headers: authHeaders,
         body: JSON.stringify({ raw_text: text, form_data: formData })

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, ArrowRight, Download, CheckCircle, Copy, ExternalLink, Sparkles, Loader2 } from 'lucide-react';
 import { saveCase, getCase, getAdviceAuthHeaders } from '../utils/storage';
+import { getApiBaseUrl } from '../utils/api';
 import VoiceMicButton from './VoiceMicButton';
 
 export default function RTIDrafting({ onNavigate, caseId }) {
@@ -64,7 +65,7 @@ export default function RTIDrafting({ onNavigate, caseId }) {
     setIsRefining(true);
     try {
       const authHeaders = await getAdviceAuthHeaders();
-      const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8000"}/api/advice/refine-rti`, {
+      const response = await fetch(`${getApiBaseUrl()}/api/advice/refine-rti`, {
         method: "POST",
         headers: authHeaders,
         body: JSON.stringify({ raw_text: formData.information })

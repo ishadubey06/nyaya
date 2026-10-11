@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Send, FileText, Info, ArrowLeft, Plus, History, MessageSquare, Trash2, ChevronLeft, ChevronRight } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { saveCase, getCase, getChatHistory, saveChatSession, getChatSession, deleteChatSession, getAdviceAuthHeaders } from '../utils/storage';
+import { getApiBaseUrl } from '../utils/api';
 import VoiceMicButton from './VoiceMicButton';
 
 const INITIAL_MESSAGES = [
@@ -136,7 +137,7 @@ export default function AIChat({ onNavigate, initialQuery, autoSend, initialGree
 
     try {
       const authHeaders = await getAdviceAuthHeaders();
-      const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8000"}/api/advice`, {
+      const response = await fetch(`${getApiBaseUrl()}/api/advice`, {
         method: "POST",
         headers: authHeaders,
         body: JSON.stringify({ 
